@@ -76,3 +76,12 @@ td {
   color: blue;
   text-decoration: underline;
 }
+
+#search-validation {
+  margin: 10px auto;
+  background-color: #ee4c7d9d;
+  padding: 3px 0;
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

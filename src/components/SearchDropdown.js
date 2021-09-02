@@ -5,18 +5,18 @@ class SearchDropdown extends Component {
     super(props);
   }
 
-  setSearchValue = (value) => {
-    console.log("setSearchValue", value);
+  setSearchOption = (option) => {
+    console.log("setSearchOption", option);
     this.props.setSearchState({
-      searchValue: value === "Search Category" ? null : value,
+      searchOption: option,
     });
   };
 
   render() {
     return (
       <div id="search-dropdown">
-        <select onChange={(e) => this.setSearchValue(e.target.value)}>
-          <option value={null} default>
+        <select onChange={(e) => this.setSearchOption(e.target.value)}>
+          <option selected disabled default>
             Search Category
           </option>
           <option value="title">Title</option>

@@ -11,6 +11,8 @@ class Home extends Component {
       view: "table",
       dvds: null,
       dvd: null,
+      showValidationError: false,
+      validationMessage: null,
     };
     this.setState = this.setState.bind(this);
   }
@@ -36,10 +38,10 @@ class Home extends Component {
     }
   };
 
-  getDvdSearch = async (value, input) => {
+  getDvdSearch = async (option, input) => {
     try {
       let res = await axios.get(
-        `https://tsg-dvds.herokuapp.com/dvds/${value}/${input}`
+        `https://tsg-dvds.herokuapp.com/dvds/${option}/${input}`
       );
       this.setState({ dvds: res.data });
     } catch (error) {
@@ -57,6 +59,8 @@ class Home extends Component {
               dvds={this.state.dvds}
               getDvd={this.getDvd}
               getDvdSearch={this.getDvdSearch}
+              showValidationError={this.state.showValidationError}
+              validationMessage={this.state.validationMessage}
             />
           )}
           {this.state.view === "form" && (

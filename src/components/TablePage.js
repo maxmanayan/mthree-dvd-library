@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DvdTable from "./DvdTable";
 import DvdTableRow from "./DvdTableRow";
 import Navbar from "./Navbar";
+import SearchValidation from "./SearchValidation";
 
 class TablePage extends Component {
   constructor(props) {
@@ -35,8 +36,10 @@ class TablePage extends Component {
           setHomeState={this.props.setHomeState}
           getDvdSearch={this.props.getDvdSearch}
         />
+        {this.props.showValidationError && (
+          <SearchValidation validationMessage={this.props.validationMessage} />
+        )}
         <DvdTable>{this.state.dvds && this.renderDvds()}</DvdTable>
-        <h1>TablePage</h1>
       </div>
     );
   }

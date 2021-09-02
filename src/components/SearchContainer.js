@@ -6,35 +6,35 @@ class SearchContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: null,
+      searchOption: null,
       searchInput: null,
     };
     this.setSearchState = this.setState.bind(this);
   }
 
-  handleSearch = () => {
-    if (!this.state.searchValue || !this.state.searchInput) {
-      // put error validation here
-      console.log("error");
-      console.log(
-        "value",
-        this.state.searchValue,
-        "input",
-        this.state.searchInput
-      );
+  checkNullSearch = () => {
+    if (!this.state.searchOption || !this.state.searchInput) {
+      this.props.setHomeState({
+        showValidationError: true,
+        validationMessage: "Both Search Category and Search Term are required.",
+      });
     } else {
+      this.props.setHomeState({
+        showValidationError: false,
+        validationMessage: null,
+      });
       this.handleSearchCall();
     }
   };
 
   handleSearchCall = () => {
-    this.props.getDvdSearch(this.state.searchValue, this.state.searchInput);
+    this.props.getDvdSearch(this.state.searchOption, this.state.searchInput);
   };
 
   render() {
     return (
       <div id="search-container">
-        <button onClick={this.handleSearch}>Search</button>
+        <button onClick={this.checkNullSearch}>Search</button>
         <SearchDropdown setSearchState={this.setSearchState} />
         <SearchInput setSearchState={this.setSearchState} />
       </div>

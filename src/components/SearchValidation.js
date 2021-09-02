@@ -4,7 +4,7 @@ class SearchValidation extends Component {
   render() {
     return (
       <div id="search-validation">
-        <h1>SearchValidation</h1>
+        <h4>{this.props.validationMessage}</h4>
       </div>
     );
   }
