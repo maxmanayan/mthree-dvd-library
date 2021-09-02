@@ -49,6 +49,18 @@ class Home extends Component {
     }
   };
 
+  createDvd = async (newDvd) => {
+    try {
+      let res = await axios.post(`https://tsg-dvds.herokuapp.com/dvd`, {
+        ...newDvd,
+      });
+      console.log("in post request", res.data);
+      this.setState({ dvds: [...this.state.dvds, res.data], view: "table" });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     return (
       <div id="home">
@@ -64,7 +76,13 @@ class Home extends Component {
             />
           )}
           {this.state.view === "form" && (
-            <DvdForm setHomeState={this.setState} dvd={this.state.dvd} />
+            <DvdForm
+              setHomeState={this.setState}
+              dvd={this.state.dvd}
+              createDvd={this.createDvd}
+              showValidationError={this.state.showValidationError}
+              validationMessage={this.state.validationMessage}
+            />
           )}
           {this.state.view === "details" && this.state.dvd && (
             <DvdDetails setHomeState={this.setState} dvd={this.state.dvd} />

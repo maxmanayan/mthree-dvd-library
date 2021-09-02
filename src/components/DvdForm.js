@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DvdFormRow from "./DvdFormRow";
+import SearchValidation from "./SearchValidation";
 
 class DvdForm extends Component {
   constructor(props) {
@@ -21,17 +22,54 @@ class DvdForm extends Component {
   };
 
   checkNullProperties = (newDvd) => {
-    console.log("null props", newDvd);
+    // Check for null values
+    if (Object.values(newDvd).indexOf(null) > -1) {
+      this.props.setHomeState({
+        showValidationError: true,
+        validationMessage: "All Fields Are Required",
+      });
+    } else {
+      this.props.setHomeState({
+        showValidationError: false,
+        validationMessage: null,
+      });
+      this.checkYearValidity(newDvd);
+    }
   };
 
   checkYearValidity = (newDvd) => {
-    console.log("year vad", newDvd);
+    // console.log("year vad", newDvd);
+    newDvd.releaseYear = Number(newDvd.releaseYear);
+    if (typeof newDvd.releaseYear !== "number") {
+      this.props.setHomeState({
+        showValidationError: true,
+        validationMessage: "Release Year must be a number.",
+      });
+    } else if (String(newDvd.releaseYear).length !== 4) {
+      this.props.setHomeState({
+        showValidationError: true,
+        validationMessage: "Release Year must have 4 digits.",
+      });
+    } else {
+      this.props.setHomeState({
+        showValidationError: false,
+        validationMessage: null,
+      });
+      this.handlePostRequest(newDvd);
+    }
+  };
+
+  handlePostRequest = (newDvd) => {
+    this.props.createDvd(newDvd);
   };
 
   render() {
     return (
       <div id="dvd-form">
         <h1>DvdForm</h1>
+        {this.props.showValidationError && (
+          <SearchValidation validationMessage={this.props.validationMessage} />
+        )}
         <form onSubmit={this.handleSubmit}>
           <DvdFormRow>
             <label for="title">Dvd Title: </label>
@@ -46,6 +84,7 @@ class DvdForm extends Component {
           <DvdFormRow>
             <label for="releaseYear">Release Year: </label>
             <input
+              type="number"
               id="releaseYear"
               placeholder="Enter Release Year"
               value={this.state.releaseYear}
@@ -69,6 +108,9 @@ class DvdForm extends Component {
               id="rating"
               onChange={(e) => this.setState({ rating: e.target.value })}
             >
+              <option disabled selected>
+                Choose Rating
+              </option>
               <option value="G">G</option>
               <option value="PG">PG</option>
               <option value="PG-13">PG-13</option>
