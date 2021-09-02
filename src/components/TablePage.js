@@ -14,14 +14,16 @@ class TablePage extends Component {
 
   renderDvds = () => {
     return this.state.dvds.map((dvd) => {
-      console.log(dvd);
       return (
         <DvdTableRow
           key={dvd.id}
+          id={dvd.id}
           title={dvd.title}
           releaseYear={dvd.releaseYear}
           director={dvd.director}
           rating={dvd.rating}
+          getDvd={this.props.getDvd}
+          setHomeState={this.props.setHomeState}
         />
       );
     });

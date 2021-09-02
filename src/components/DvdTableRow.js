@@ -12,11 +12,19 @@ class DvdTableRow extends Component {
     };
   }
 
+  handleTitleClick = () => {
+    console.log("in handle title click", this.props.id);
+    this.props.getDvd(this.props.id);
+    this.props.setHomeState({ view: "details" });
+  };
+
   render() {
     return (
       <>
         <tr className="dvd-table-row">
-          <td>{this.state.title}</td>
+          <td className="dvd-title" onClick={this.handleTitleClick}>
+            {this.state.title}
+          </td>
           <td>{this.state.releaseYear}</td>
           <td>{this.state.director}</td>
           <td>{this.state.rating}</td>

@@ -9,7 +9,6 @@ class Navbar extends Component {
   render() {
     return (
       <div id="navbar">
-        <h1>Navbar</h1>
         <div>
           <CreateDvdButton setHomeState={this.props.setHomeState} />
         </div>
