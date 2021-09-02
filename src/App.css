@@ -2,9 +2,9 @@
 Color Scheme: 
 - dark red: #5d001e
 - gray: #e3e2df
-- dark red: #e3afbc
-- dark red: #9a1750
-- dark red: #ee4c7c
+- light pink: #e3afbc
+- medium red: #9a1750
+- bright red/pink: #ee4c7c
 */
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
@@ -48,4 +48,26 @@ Color Scheme:
   background-color: rebeccapurple;
   max-width: 500px;
   width: 60vw;
+}
+
+.dvd-table {
+  margin: 20px auto;
+}
+
+.dvd-table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px 10px;
+  font-size: 1.1em;
+}
+
+.dvd-table th {
+  background-color: #9a1750;
+  color: white;
+}
+
+.dvd-table tr:nth-child(odd) {
+  background-color: #e3afbc;
 }
