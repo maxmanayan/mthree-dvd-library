@@ -8,12 +8,11 @@ class CreateDvdButton extends Component {
   showFormView = () => {
     this.props.setHomeState({ view: "form" });
   };
+
   render() {
     return (
       <div id="create-dvd-button">
-        <div>
-          <button onClick={this.showFormView}>Create DVD</button>
-        </div>
+        <button onClick={this.showFormView}>Create Dvd</button>
       </div>
     );
   }

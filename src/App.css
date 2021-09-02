@@ -37,6 +37,7 @@ Color Scheme:
   align-items: center;
   max-width: 1240px;
   width: 100vw;
+  padding: 1em;
   border-bottom: 3px solid #5d001e;
 }
 
@@ -51,6 +52,7 @@ Color Scheme:
 
 .dvd-table {
   margin: 20px auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .dvd-table,

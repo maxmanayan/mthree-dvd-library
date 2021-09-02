@@ -64,7 +64,7 @@ class Home extends Component {
             />
           )}
           {this.state.view === "form" && (
-            <DvdForm setHomeState={this.setState} />
+            <DvdForm setHomeState={this.setState} dvd={this.state.dvd} />
           )}
           {this.state.view === "details" && this.state.dvd && (
             <DvdDetails setHomeState={this.setState} dvd={this.state.dvd} />
