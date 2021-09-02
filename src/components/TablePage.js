@@ -8,8 +8,8 @@ class TablePage extends Component {
   render() {
     return (
       <div id="table-page">
-        <h1>TablePage</h1>
         <Navbar setHomeState={this.props.setHomeState} />
+        <h1>TablePage</h1>
       </div>
     );
   }

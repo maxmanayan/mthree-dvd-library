@@ -29,3 +29,23 @@ Color Scheme:
   max-width: 1240px;
   width: 100vw;
 }
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1240px;
+  width: 100vw;
+  border-bottom: 3px solid #5d001e;
+}
+
+#search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rebeccapurple;
+  max-width: 500px;
+  width: 60vw;
+}

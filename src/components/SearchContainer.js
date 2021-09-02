@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import SearchDropdown from "./SearchDropdown";
 
 class SearchContainer extends Component {
   render() {
     return (
       <div id="search-container">
-        <h1>SearchContainer</h1>
+        <button>Search</button>
+        <SearchDropdown />
+        <input></input>
       </div>
     );
   }

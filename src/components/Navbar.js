@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import CreateDvdButton from "./CreateDvdButton";
+import SearchContainer from "./SearchContainer";
 
 class Navbar extends Component {
   constructor(props) {
@@ -9,9 +11,10 @@ class Navbar extends Component {
       <div id="navbar">
         <h1>Navbar</h1>
         <div>
-          <button onClick={() => this.props.setHomeState({ view: "form" })}>
-            To Form
-          </button>
+          <CreateDvdButton setHomeState={this.props.setHomeState} />
+        </div>
+        <div>
+          <SearchContainer />
         </div>
       </div>
     );
