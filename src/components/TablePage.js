@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import DvdForm from "./DvdForm";
 import DvdTable from "./DvdTable";
 import DvdTableRow from "./DvdTableRow";
 import Navbar from "./Navbar";
@@ -32,7 +31,10 @@ class TablePage extends Component {
   render() {
     return (
       <div id="table-page">
-        <Navbar setHomeState={this.props.setHomeState} />
+        <Navbar
+          setHomeState={this.props.setHomeState}
+          getDvdSearch={this.props.getDvdSearch}
+        />
         <DvdTable>{this.state.dvds && this.renderDvds()}</DvdTable>
         <h1>TablePage</h1>
       </div>

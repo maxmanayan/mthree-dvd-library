@@ -14,7 +14,7 @@ class DvdDetails extends Component {
   }
 
   returnHome = () => {
-    this.props.setHomeState({ view: "table" });
+    this.props.setHomeState({ view: "table", dvd: null });
   };
 
   render() {

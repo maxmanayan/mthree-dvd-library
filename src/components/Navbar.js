@@ -13,7 +13,7 @@ class Navbar extends Component {
           <CreateDvdButton setHomeState={this.props.setHomeState} />
         </div>
         <div>
-          <SearchContainer />
+          <SearchContainer getDvdSearch={this.props.getDvdSearch} />
         </div>
       </div>
     );

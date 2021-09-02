@@ -15,6 +15,7 @@ class DvdTable extends Component {
               <th>Release Date</th>
               <th>Director</th>
               <th>Rating</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>{this.props.children}</tbody>

@@ -13,7 +13,6 @@ class DvdTableRow extends Component {
   }
 
   handleTitleClick = () => {
-    console.log("in handle title click", this.props.id);
     this.props.getDvd(this.props.id);
     this.props.setHomeState({ view: "details" });
   };
@@ -28,6 +27,7 @@ class DvdTableRow extends Component {
           <td>{this.state.releaseYear}</td>
           <td>{this.state.director}</td>
           <td>{this.state.rating}</td>
+          <td>Edit | Delete</td>
         </tr>
       </>
     );

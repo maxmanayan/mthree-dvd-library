@@ -70,3 +70,9 @@ td {
 .dvd-table tr:nth-child(odd) {
   background-color: #e3afbc;
 }
+
+.dvd-title:hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
