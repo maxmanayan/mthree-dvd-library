@@ -65,12 +65,13 @@ class DvdForm extends Component {
 
   render() {
     return (
-      <div id="dvd-form">
+      <div id="dvd-form-container">
         <h1>DvdForm</h1>
+        <hr />
         {this.props.showValidationError && (
           <SearchValidation validationMessage={this.props.validationMessage} />
         )}
-        <form onSubmit={this.handleSubmit}>
+        <form id="dvd-form" onSubmit={this.handleSubmit}>
           <DvdFormRow>
             <label for="title">Dvd Title: </label>
             <input
@@ -128,7 +129,7 @@ class DvdForm extends Component {
             />
           </DvdFormRow>
 
-          <div>
+          <div className="button-container">
             <button onClick={() => this.props.setHomeState({ view: "table" })}>
               Cancel
             </button>
